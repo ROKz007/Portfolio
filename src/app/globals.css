@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #ff003c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-space-mono);
+  --font-manga: var(--font-bangers);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.bg-halftone {
+  background-color: var(--background);
+  background-image: radial-gradient(var(--foreground) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+.manga-panel {
+  border: 4px solid var(--foreground);
+  background: var(--background);
+  box-shadow: 8px 8px 0px 0px var(--foreground);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.manga-panel:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px 0px var(--foreground);
+}
+
+.sharp-cut {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.sharp-cut-reverse {
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
+}
+
+.brush-stroke {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.brush-stroke::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -4px;
+  right: -4px;
+  height: 40%;
+  background-color: var(--accent);
+  clip-path: polygon(0 20%, 100% 0, 95% 100%, 5% 80%);
+  z-index: -1;
+}
