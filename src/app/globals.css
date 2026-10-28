@@ -56,20 +56,28 @@ body {
     #070709;
 }
 
-/* Subtle editorial metallic gradients */
+/* Subtle editorial metallic gradients with anti-clipping padding */
 .text-gradient-sakura {
   background: linear-gradient(135deg, #ffffff 15%, #f4a5b8 65%, #c87a3e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-right: 0.18em;
+  padding-bottom: 0.08em;
+  line-height: normal;
 }
 
 .text-gradient-copper {
   background: linear-gradient(135deg, #ffffff 20%, #e2b48d 60%, #c87a3e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-right: 0.18em;
+  padding-bottom: 0.08em;
+  line-height: normal;
 }
 
-/* Clean Luxury Glass Card */
+/* Clean Luxury Glass Card with Pure Frosted Glass Hover Effect */
 .luxury-card {
   background: rgba(13, 10, 12, 0.65);
   backdrop-filter: blur(20px);
@@ -79,9 +87,11 @@ body {
 }
 
 .luxury-card:hover {
-  border-color: rgba(212, 163, 115, 0.35);
-  background: rgba(18, 13, 16, 0.8);
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(200, 122, 62, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 /* Minimal Luxury Marquee */

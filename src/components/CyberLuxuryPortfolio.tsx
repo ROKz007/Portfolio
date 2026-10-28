@@ -97,9 +97,9 @@ export default function CyberLuxuryPortfolio() {
       {/* ================= HERO SECTION ================= */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center w-full px-6 md:px-12 lg:px-16 pt-28 sm:pt-36 pb-20 md:pb-28 overflow-hidden"
+        className="relative min-h-screen flex items-center w-full px-6 md:px-12 lg:px-16 pt-28 sm:pt-36 pb-20 md:pb-28"
       >
-        {/* Enlarge & Tilted 3D Avatar Shifted Left to Prevent Clipping */}
+        {/* Enlarge & Tilted 3D Avatar Shifted Left & Down with Idle Slow Sway */}
         <HeroVisual />
 
         {/* Content Layer */}
@@ -111,10 +111,10 @@ export default function CyberLuxuryPortfolio() {
             <span>Full Stack & Platform Engineering</span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+          {/* Main Headline (Anti-clipping leading and padding) */}
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.18] sm:leading-[1.14] py-2 overflow-visible">
             A New Depth in{" "}
-            <span className="text-gradient-sakura font-extrabold italic">
+            <span className="text-gradient-sakura font-extrabold italic inline-block pr-4 pb-1">
               Scalable Systems
             </span>
           </h1>
@@ -203,9 +203,9 @@ export default function CyberLuxuryPortfolio() {
           <span className="text-sm font-mono uppercase tracking-[0.2em] text-[#d4a373]">
             Production Experience
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white py-2 leading-tight overflow-visible">
             Where Engineering{" "}
-            <span className="text-gradient-sakura italic font-extrabold">
+            <span className="text-gradient-sakura italic font-extrabold inline-block pr-4 pb-1">
               Meets Ownership
             </span>
           </h2>
@@ -214,56 +214,56 @@ export default function CyberLuxuryPortfolio() {
           </p>
         </div>
 
-        {/* Minimal Experience Tiles: Only Company Name & Role */}
+        {/* Minimal Experience Tiles: Only Company Name & Role with Frosted Glass Hover */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Jio Platforms Tile */}
           <div
             onClick={() => setActiveModal("jio")}
-            className="luxury-card p-8 sm:p-10 rounded-3xl flex flex-col justify-between space-y-6 cursor-pointer group hover:border-[#d4a373]/50 transition-all select-none"
+            className="luxury-card p-8 sm:p-10 rounded-3xl flex flex-col justify-between space-y-6 cursor-pointer group transition-all select-none"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-2">
                 <span className="text-xs sm:text-sm font-mono text-[#d4a373] uppercase tracking-wider block">
                   Software Development Intern
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white group-hover:text-[#d4a373] transition-colors">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white group-hover:text-white transition-colors">
                   Jio Platforms Limited
                 </h3>
               </div>
-              <div className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 group-hover:text-black group-hover:bg-[#d4a373] group-hover:border-[#d4a373] transition-all">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 group-hover:text-white group-hover:bg-white/10 group-hover:border-white/20 transition-all">
                 <FiArrowUpRight size={20} />
               </div>
             </div>
 
             <div className="pt-6 border-t border-white/[0.08] flex items-center justify-between text-xs sm:text-sm font-mono text-gray-400">
               <span>Navi Mumbai, Maharashtra</span>
-              <span className="text-[#d4a373]">Click to inspect dossier ↗</span>
+              <span className="text-gray-300 group-hover:text-white transition-colors">Click to inspect dossier ↗</span>
             </div>
           </div>
 
           {/* Reliance Industries Tile */}
           <div
             onClick={() => setActiveModal("reliance")}
-            className="luxury-card p-8 sm:p-10 rounded-3xl flex flex-col justify-between space-y-6 cursor-pointer group hover:border-[#f4a5b8]/50 transition-all select-none"
+            className="luxury-card p-8 sm:p-10 rounded-3xl flex flex-col justify-between space-y-6 cursor-pointer group transition-all select-none"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-2">
                 <span className="text-xs sm:text-sm font-mono text-[#f4a5b8] uppercase tracking-wider block">
                   Software Developer Intern (Vocational)
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white group-hover:text-[#f4a5b8] transition-colors">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white group-hover:text-white transition-colors">
                   Reliance Industries Limited
                 </h3>
               </div>
-              <div className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 group-hover:text-black group-hover:bg-[#f4a5b8] group-hover:border-[#f4a5b8] transition-all">
+              <div className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 group-hover:text-white group-hover:bg-white/10 group-hover:border-white/20 transition-all">
                 <FiArrowUpRight size={20} />
               </div>
             </div>
 
             <div className="pt-6 border-t border-white/[0.08] flex items-center justify-between text-xs sm:text-sm font-mono text-gray-400">
               <span>Jamnagar, Gujarat</span>
-              <span className="text-[#f4a5b8]">Click to inspect dossier ↗</span>
+              <span className="text-gray-300 group-hover:text-white transition-colors">Click to inspect dossier ↗</span>
             </div>
           </div>
 
@@ -277,8 +277,8 @@ export default function CyberLuxuryPortfolio() {
             <span className="text-sm font-mono uppercase tracking-[0.2em] text-[#d4a373]">
               Portfolio Works
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-              Featured <span className="text-gradient-sakura italic font-extrabold">Platforms</span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white py-2 leading-tight overflow-visible">
+              Featured <span className="text-gradient-sakura italic font-extrabold inline-block pr-4 pb-1">Platforms</span>
             </h2>
           </div>
           <p className="text-xs sm:text-sm font-mono text-gray-400 max-w-sm">
@@ -338,8 +338,8 @@ export default function CyberLuxuryPortfolio() {
               <span className="text-sm font-mono uppercase tracking-[0.2em] text-[#d4a373]">
                 Core Competencies
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">
-                Technical <span className="text-gradient-copper">Arsenal</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white py-2 leading-tight overflow-visible">
+                Technical <span className="text-gradient-copper inline-block pr-4 pb-1">Arsenal</span>
               </h2>
             </div>
 
@@ -390,7 +390,7 @@ export default function CyberLuxuryPortfolio() {
               <span className="text-sm font-mono uppercase tracking-[0.2em] text-[#d4a373]">
                 Academic Foundation
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white py-2 leading-tight overflow-visible">
                 Education
               </h2>
             </div>

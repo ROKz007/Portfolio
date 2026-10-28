@@ -34,7 +34,7 @@ export default function ProjectCard({
   return (
     <div
       onClick={onOpenModal}
-      className="group relative h-80 sm:h-96 rounded-3xl overflow-hidden luxury-card border border-white/10 hover:border-[#d4a373]/50 transition-all duration-500 flex flex-col justify-between p-6 sm:p-8 cursor-pointer select-none"
+      className="group relative h-80 sm:h-96 rounded-3xl overflow-hidden luxury-card border border-white/10 transition-all duration-500 flex flex-col justify-between p-6 sm:p-8 cursor-pointer select-none"
     >
       {/* Background Fallback Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0910] via-[#0e090c] to-[#070709] z-0" />
@@ -72,7 +72,7 @@ export default function ProjectCard({
 
       {/* Middle: Clean Centered Project Title */}
       <div className="relative z-20 text-center my-auto px-4 space-y-2">
-        <h3 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white group-hover:text-[#f4a5b8] transition-colors duration-300">
+        <h3 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white group-hover:text-[#f4a5b8] transition-colors duration-300 py-1 leading-snug">
           {title}
         </h3>
         <span className="inline-block text-xs font-mono text-gray-400 group-hover:text-[#d4a373] transition-colors">

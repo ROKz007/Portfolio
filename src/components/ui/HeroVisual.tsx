@@ -26,18 +26,28 @@ export default function HeroVisual() {
       const { innerWidth, innerHeight } = window;
       const normX = (e.clientX / innerWidth) * 2 - 1;
       const normY = (e.clientY / innerHeight) * 2 - 1;
-      mousePos.current = { x: normX * 18, y: normY * 16 };
+      mousePos.current = { x: normX * 16, y: normY * 14 };
     };
 
     window.addEventListener("mousemove", handleMouseMove);
 
+    // 60 FPS Loop combining Smooth Mouse Parallax + Idle Slow Floating Sway
     let animationId: number;
-    const animate = () => {
+    const animate = (timestamp: number) => {
       currentPos.current.x += (mousePos.current.x - currentPos.current.x) * 0.08;
       currentPos.current.y += (mousePos.current.y - currentPos.current.y) * 0.08;
 
+      // Gentle continuous idle sway (floating sine wave)
+      const swayY = Math.sin(timestamp * 0.0012) * 9; // float up & down ±9px
+      const swayX = Math.cos(timestamp * 0.0008) * 5; // float side to side ±5px
+      const swayAngle = Math.sin(timestamp * 0.001) * 2.5; // gentle tilt sway ±2.5deg
+
+      const totalX = currentPos.current.x + swayX;
+      const totalY = currentPos.current.y + swayY;
+      const totalRot = -10 + swayAngle;
+
       if (visualRef.current) {
-        visualRef.current.style.transform = `translate3d(${currentPos.current.x}px, ${currentPos.current.y}px, 0) rotate(-10deg) scale(1.12)`;
+        visualRef.current.style.transform = `translate3d(${totalX}px, ${totalY}px, 0) rotate(${totalRot}deg) scale(1.12)`;
       }
 
       animationId = requestAnimationFrame(animate);
@@ -74,12 +84,12 @@ export default function HeroVisual() {
   return (
     <div
       ref={containerRef}
-      className="absolute top-8 right-6 sm:right-12 md:right-20 lg:right-28 xl:right-36 w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[540px] lg:h-[540px] pointer-events-auto select-none z-0 overflow-visible flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-500"
+      className="absolute top-28 sm:top-36 md:top-40 lg:top-44 right-6 sm:right-12 md:right-20 lg:right-28 xl:right-36 w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[540px] lg:h-[540px] pointer-events-auto select-none z-0 overflow-visible flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-500"
     >
       {/* Ambient Radial Vignette & Ruby Glow for Background Blending */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#c87a3e]/15 via-[#64111e]/25 to-transparent blur-3xl pointer-events-none" />
 
-      {/* Floating 3D Character with Mouse Tracking (Shifted left to protect hands from clipping) */}
+      {/* Floating 3D Character with Idle Slow Sway & Mouse Tracking */}
       <div
         ref={visualRef}
         onClick={handleClick}
