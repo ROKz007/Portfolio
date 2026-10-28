@@ -1,9 +1,5 @@
-import MangaPortfolio from '@/components/MangaPortfolio';
+import CyberLuxuryPortfolio from "@/components/CyberLuxuryPortfolio";
 
 export default function Home() {
-  return (
-    <main>
-      <MangaPortfolio />
-    </main>
-  );
+  return <CyberLuxuryPortfolio />;
 }
